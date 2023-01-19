@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {box-sizing: border-box; margin:0; padding:0;}
+        header {background:yellow}
+        /* .sub {display:none;} */
+        #slide_wrap {
+            width:1200px; overflow:hidden;
+        }
+        #slide_container {
+            display:flex; width:max-content; position:relative; left:0; transition:all 0.3s;
+        }
+        .slide {border:2px solid #000; width:1200px; height:300px;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>logo</h1>
+        <nav>
+            <ul>
+                <li><a href="#">menu-1</a>
+                    <ul class="sub">
+                        <li><a href="#">sub1</a></li>
+                        <li><a href="#">sub2</a></li>
+                        <li><a href="#">sub3</a></li>
+                        <li><a href="#">sub4</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">menu-1</a>
+                    <ul class="sub">
+                        <li><a href="#">sub1</a></li>
+                        <li><a href="#">sub2</a></li>
+                        <li><a href="#">sub3</a></li>
+                        <li><a href="#">sub4</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="slide_wrap">
+            <div id="slide_container">
+                <div class="slide slide1">1</div>
+                <div class="slide slide2">2</div>
+                <div class="slide slide3">3</div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+        // jquery
+        $('.sub').hide()
+        $('nav>ul>li:nth-child(1)').on('mouseover',function(){
+            // $('.sub').show()
+            // $('nav>ul>li:nth-child(1) .sub').show()
+            $('nav>ul>li:nth-child(1)>.sub').stop().slideDown(300)
+            /* $(this).children().show()
+            console.log($(this).children().show()) */
+            console.log(this.children)
+        })
+        $('nav>ul>li:nth-child(1)').on('mouseout',function(){
+            // $('.sub').show()
+            // $('nav>ul>li:nth-child(1) .sub').show()
+            $('.sub').stop().slideUp(300)
+        })
+        $('nav>ul>li:nth-child(2)').on('mouseover',function(){
+            // $('.sub').show()
+            // $('nav>ul>li:nth-child(1) .sub').show()
+            $('nav>ul>li:nth-child(2)>.sub').stop().slideDown(300)
+            /* $(this).children().show()
+            console.log($(this).children().show()) */
+            console.log(this.children)
+        })
+        $('nav>ul>li:nth-child(2)').on('mouseout',function(){
+            // $('.sub').show()
+            // $('nav>ul>li:nth-child(1) .sub').show()
+            $('.sub').stop().slideUp(300)
+        })
+
+        let $nav = $('nav>ul>li')
+        // console.log($nav)
+        let num = 0
+
+        let timer = setInterval(slide,1000)
+        function slide(){
+            num++
+            if(num==3){num=0}
+            $('#slide_container').css('left','-'+num*1200+'px')
+        }
+
+    </script>
+</body>
+</html>

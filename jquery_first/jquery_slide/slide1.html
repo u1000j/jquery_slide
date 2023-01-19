@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery-slide1</title>
+    <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="slick-1.8.1/slick/slick-theme.css">
+    <style>
+        main {}
+        main #slide-container {display:flex; justify-content:center;}
+        main #slide-container #slide-wrapper {width:500px;}
+        main #slide-container #slide-wrapper .slide {height:300px; text-indent:-9999px;}
+        main #slide-container #slide-wrapper .slide1 {background-color:gold;}
+        main #slide-container #slide-wrapper .slide2 {background-color:salmon;}
+        main #slide-container #slide-wrapper .slide3 {background-color:seagreen;}
+    </style>
+</head>
+<body>
+    <main>
+        <div id="slide-container">
+            <div id="slide-wrapper">
+                <div class="slide slide1">gold</div>
+                <div class="slide slide2">seagreen</div>
+                <div class="slide slide3">darkorange</div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
+    <script>
+    $('#slide-wrapper').slick({
+        fade: true,
+        dots: true,
+        autoplay:true,
+        autoplaySpeed: 500
+    });
+    </script>
+</body>
+</html>
